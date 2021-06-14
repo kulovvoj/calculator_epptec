@@ -3,8 +3,18 @@ import java.util.*;
 
 import static java.lang.Math.pow;
 
-
 public class Calculator {
+    public static Map<String, OperatorAttr> operators;
+    static {
+        Map<String, OperatorAttr> tmpOperators = new HashMap<String, OperatorAttr>();
+        tmpOperators.put("+", new OperatorAttr(2, OperatorAttr.Assoc.LEFT));
+        tmpOperators.put("-", new OperatorAttr(2, OperatorAttr.Assoc.LEFT));
+        tmpOperators.put("*", new OperatorAttr(3, OperatorAttr.Assoc.LEFT));
+        tmpOperators.put("/", new OperatorAttr(3, OperatorAttr.Assoc.LEFT));
+        tmpOperators.put("^", new OperatorAttr(4, OperatorAttr.Assoc.RIGHT));
+        operators = tmpOperators;
+    }
+
     // Tests if the given string is a number by trying to convert it to double
     private static boolean isNumber (String token) {
         try {
@@ -41,17 +51,53 @@ public class Calculator {
         }
     }
 
-    // Solves unary "-" operation by negating the following number
+    // Expression needs to be converted to suffix, so that it's more easily solved
+    // Shunting-Yard algorithm is used to convert it
+    private static List<String> infixToSuffix (List<String> infixExpr) {
+        Stack<String> stack = new Stack<String>();
+        List<String> suffixExpr = new ArrayList<String>();
+
+        for (String i : infixExpr) {
+            System.out.println(i + " : " + operators.containsKey(i));
+            if (isNumber(i)) {
+                suffixExpr.add(i);
+            } else if (operators.containsKey(i)) {
+                while (!stack.empty() && !stack.peek().equals("(") &&
+                        ((operators.get(i).getAssoc() == OperatorAttr.Assoc.LEFT && operators.get(i).getPreced() <= operators.get(stack.peek()).getPreced()) ||
+                         (operators.get(i).getAssoc() == OperatorAttr.Assoc.RIGHT && operators.get(i).getPreced() < operators.get(stack.peek()).getPreced()))) {
+                    suffixExpr.add(stack.pop());
+                }
+                stack.push(i);
+            } else if (i.equals("(")) {
+                stack.push(i);
+            } else if (i.equals(")")) {
+                while (!stack.empty() && !stack.peek().equals("("))
+                    suffixExpr.add(stack.pop());
+                if (stack.empty())
+                    throw new IllegalArgumentException("Error: Mismatched parentheses");
+                stack.pop();
+            } else {
+                throw new IllegalArgumentException("Error: Invalid input");
+            }
+        }
+        while (!stack.empty()) {
+            System.out.println("TOP");
+            if (stack.peek().equals("(")) {
+                throw new IllegalArgumentException("Error: Mismatched parentheses");
+            }
+            suffixExpr.add(stack.pop());
+        }
+        return suffixExpr;
+    }
+
+    // Solves unary "-" operation by converting it to binary -1 * x operation
     private static List<String> solveUnaryMinus (List<String> expr) {
         for (int i = 0; i < expr.size(); i++) {
-            // "-" is unary if it's either first in the expression or if the token preceding is not a number
-            if (expr.get(i).equals("-") && (i == 0 || !isNumber(expr.get(i - 1)))) {
-                expr.set(i + 1, "-" + expr.get(i + 1));
-                expr.remove(i);
-
-                // Will be used for converting unary - to binary in the next step of the problem
-                //expr.set(i, "-1");
-                //expr.add(i + 1, "*");
+            // "-" is unary if it's either first in the expression
+            // or if the token preceding is not a number or ending parenthesis (which will always equal a number)
+            if (expr.get(i).equals("-") && (i == 0 || !(isNumber(expr.get(i - 1)) || expr.get(i - 1).equals(")")))) {
+                expr.set(i, "-1");
+                expr.add(i + 1, "*");
             }
         }
         return expr;
@@ -91,9 +137,11 @@ public class Calculator {
 
             List<String> parsedExpr = parseExpr(expr);
             try {
-                System.out.println("= " + solveExpr(parsedExpr));
+                System.out.println(parsedExpr.toString());
+                System.out.println(infixToSuffix(parsedExpr).toString());
+                //System.out.println("= " + solveExpr(parsedExpr));
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                //System.out.println(e.getMessage());
             }
         }
     }

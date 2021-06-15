@@ -1,12 +1,14 @@
 package eu.epptec.calculator;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import static java.lang.Math.pow;
 
 public class Calculator {
-    public static Map<String, OperatorAttr> operators;
+    private static Map<String, OperatorAttr> operators;
     static {
-        Map<String, OperatorAttr> tmpOperators = new HashMap<String, OperatorAttr>();
+        Map<String, OperatorAttr> tmpOperators = new HashMap<>();
         tmpOperators.put("+", new OperatorAttr(2, OperatorAttr.Assoc.LEFT));
         tmpOperators.put("-", new OperatorAttr(2, OperatorAttr.Assoc.LEFT));
         tmpOperators.put("*", new OperatorAttr(3, OperatorAttr.Assoc.LEFT));
@@ -48,13 +50,11 @@ public class Calculator {
 
     // Takes suffix math expression and solves it using a stack
     // Operators used can only be binary, so two operands are always taken from the stack
-    public static Double solveExpr(List<String> expr) {
-        Stack<Double> numberStack = new Stack<Double>();
+    private static Double solveExpr(List<String> expr) {
+        Stack<Double> numberStack = new Stack<>();
         for (String i : expr) {
-            System.out.println(i);
             if (isNumber(i)) {
                 numberStack.push(Double.parseDouble(i));
-                System.out.println(numberStack.toString());
             } else {
                 try {
                     // Since added to the stack from left to right
@@ -67,16 +67,18 @@ public class Calculator {
                 }
             }
         }
-        if (numberStack.size() != 1)
+        if (numberStack.size() > 1)
             throw new IllegalArgumentException("Error: Too many operands");
+        if (numberStack.size() < 1)
+            throw new IllegalArgumentException("Error: Too few operands");
         return numberStack.pop();
     }
 
     // Expression needs to be converted to suffix, so that it's more easily solved
     // Shunting-Yard algorithm is used to convert it
     private static List<String> infixToSuffix (List<String> infixExpr) {
-        Stack<String> stack = new Stack<String>();
-        List<String> suffixExpr = new ArrayList<String>();
+        Stack<String> stack = new Stack<>();
+        List<String> suffixExpr = new ArrayList<>();
 
         for (String i : infixExpr) {
             if (isNumber(i)) {
@@ -125,8 +127,7 @@ public class Calculator {
     // Converts the input string to a string of separate expression tokens
     // For example: (4 + 4) * 68.5 => [(, 4, +, 4, ), *, 68.5]
     private static List<String> parseExpr(String expr) {
-
-        List<String> parsedExpr = new ArrayList<String>();
+        List<String> parsedExpr = new ArrayList<>();
 
         // Splits:
         //  - if the previous char was a number and current is not a number or a dot
@@ -143,24 +144,26 @@ public class Calculator {
     }
 
     public static void main (String[] args) {
-        Scanner myScanner = new Scanner(System.in);
-
-        System.out.println("Enter the equations (enter 0 to stop the program):");
-
-        for (String expr = myScanner.nextLine(); !expr.equals("0"); expr = myScanner.nextLine()){
-            /*for (String i : parseExpr(expr)) {
-
-                if (isNumber(i))
-                    System.out.println(Double.parseDouble(i));
-            }*/
-
-            List<String> parsedExpr = parseExpr(expr);
-            try {
-                List<String> suffixExpr = infixToSuffix(parsedExpr);
-                System.out.println("= " + solveExpr(suffixExpr));
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+        try {
+            File file = new File(args[0]);
+            Scanner fileReader = new Scanner(file);
+            while (fileReader.hasNextLine()) {
+                String expr = fileReader.nextLine();
+                if (expr.isEmpty())
+                    continue;
+                List<String> parsedExpr = parseExpr(expr);
+                try {
+                    List<String> suffixExpr = infixToSuffix(parsedExpr);
+                    System.out.println(expr + " = " + solveExpr(suffixExpr));
+                } catch (IllegalArgumentException e) {
+                    System.out.println("\"" + expr + "\" - " + e.getMessage());
+                }
             }
+            fileReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: Path doesn't lead to any file");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Pass file path as an argument");
         }
     }
 }

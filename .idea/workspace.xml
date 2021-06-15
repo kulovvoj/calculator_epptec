@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="627c6422-15d3-4a77-a355-861aa9dbfe53" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/calculator/equations.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/calculator/resources/equations.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/equations.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/calculator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/Calculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/Calculator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/epptec/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/epptec/calculator/Calculator.java" afterDir="false" />
     </list>
@@ -29,9 +33,16 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1tw9WqxsFZBsYKj4L1960KojbK3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -49,6 +60,7 @@
     <configuration name="Calculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="eu.epptec.calculator.Calculator" />
       <module name="calculator" />
+      <option name="PROGRAM_PARAMETERS" value="src/resources/equations.in" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="eu.epptec.calculator.*" />
@@ -106,5 +118,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

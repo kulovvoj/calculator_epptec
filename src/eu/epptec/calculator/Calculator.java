@@ -4,9 +4,9 @@ import java.util.*;
 import static java.lang.Math.pow;
 
 public class Calculator {
-    public static Map<String, OperatorAttr> operators;
+    private      static Map<String, OperatorAttr> operators;
     static {
-        Map<String, OperatorAttr> tmpOperators = new HashMap<String, OperatorAttr>();
+        Map<String, OperatorAttr> tmpOperators = new HashMap<>();
         tmpOperators.put("+", new OperatorAttr(2, OperatorAttr.Assoc.LEFT));
         tmpOperators.put("-", new OperatorAttr(2, OperatorAttr.Assoc.LEFT));
         tmpOperators.put("*", new OperatorAttr(3, OperatorAttr.Assoc.LEFT));
@@ -48,13 +48,11 @@ public class Calculator {
 
     // Takes suffix math expression and solves it using a stack
     // Operators used can only be binary, so two operands are always taken from the stack
-    public static Double solveExpr(List<String> expr) {
-        Stack<Double> numberStack = new Stack<Double>();
+    private static Double solveExpr(List<String> expr) {
+        Stack<Double> numberStack = new Stack<>();
         for (String i : expr) {
-            System.out.println(i);
             if (isNumber(i)) {
                 numberStack.push(Double.parseDouble(i));
-                System.out.println(numberStack.toString());
             } else {
                 try {
                     // Since added to the stack from left to right
@@ -75,8 +73,8 @@ public class Calculator {
     // Expression needs to be converted to suffix, so that it's more easily solved
     // Shunting-Yard algorithm is used to convert it
     private static List<String> infixToSuffix (List<String> infixExpr) {
-        Stack<String> stack = new Stack<String>();
-        List<String> suffixExpr = new ArrayList<String>();
+        Stack<String> stack = new Stack<>();
+        List<String> suffixExpr = new ArrayList<>();
 
         for (String i : infixExpr) {
             if (isNumber(i)) {
@@ -126,7 +124,7 @@ public class Calculator {
     // For example: (4 + 4) * 68.5 => [(, 4, +, 4, ), *, 68.5]
     private static List<String> parseExpr(String expr) {
 
-        List<String> parsedExpr = new ArrayList<String>();
+        List<String> parsedExpr = new ArrayList<>();
 
         // Splits:
         //  - if the previous char was a number and current is not a number or a dot
@@ -147,13 +145,7 @@ public class Calculator {
 
         System.out.println("Enter the equations (enter 0 to stop the program):");
 
-        for (String expr = myScanner.nextLine(); !expr.equals("0"); expr = myScanner.nextLine()){
-            /*for (String i : parseExpr(expr)) {
-
-                if (isNumber(i))
-                    System.out.println(Double.parseDouble(i));
-            }*/
-
+        for (String expr = myScanner.nextLine(); !expr.equals("0"); expr = myScanner.nextLine()) {
             List<String> parsedExpr = parseExpr(expr);
             try {
                 List<String> suffixExpr = infixToSuffix(parsedExpr);

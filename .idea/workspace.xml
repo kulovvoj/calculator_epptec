@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="627c6422-15d3-4a77-a355-861aa9dbfe53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/eu/epptec/calculator/OperatorAttr.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/Calculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/Calculator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/epptec/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/epptec/calculator/Calculator.java" afterDir="false" />
@@ -102,7 +99,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

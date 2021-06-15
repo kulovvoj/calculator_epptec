@@ -26,14 +26,9 @@ public class Calculator {
     }
 
     // Checks validity and solves given binary operation
-    private static double solveExpr(List<String> expr) {
-        // If the given expression is not a valid binary operation, throw an exception
-        if (expr.size() != 3 || !isNumber(expr.get(0)) || !isNumber(expr.get(2))) {
-            throw new IllegalArgumentException("Error: Invalid input");
-        }
-
-        double x = Double.parseDouble(expr.get(0)), y = Double.parseDouble(expr.get(2));
-        switch (expr.get(1)) {
+    // If the given expression is not a valid binary operation, throw an exception
+    private static Double solveOperator(Double x, Double y, String operator) {
+        switch (operator) {
             case "+":
                 return x + y;
             case "-":
@@ -47,8 +42,34 @@ public class Calculator {
             case "^":
                 return pow(x, y);
             default:
-                throw new IllegalArgumentException("Error: Invalid input");
+                throw new IllegalArgumentException("Error: Invalid operator \'" + operator + "\'");
         }
+    }
+
+    // Takes suffix math expression and solves it using a stack
+    // Operators used can only be binary, so two operands are always taken from the stack
+    public static Double solveExpr(List<String> expr) {
+        Stack<Double> numberStack = new Stack<Double>();
+        for (String i : expr) {
+            System.out.println(i);
+            if (isNumber(i)) {
+                numberStack.push(Double.parseDouble(i));
+                System.out.println(numberStack.toString());
+            } else {
+                try {
+                    // Since added to the stack from left to right
+                    // we have to swap the numbers to keep the order of non-commutative operations
+                    Double val2 = numberStack.pop();
+                    Double val1 = numberStack.pop();
+                    numberStack.push(solveOperator(val1, val2, i));
+                } catch (EmptyStackException e) {
+                    throw new IllegalArgumentException("Error: Invalid number of operands for operator \'" + i + "\'");
+                }
+            }
+        }
+        if (numberStack.size() != 1)
+            throw new IllegalArgumentException("Error: Too many operands");
+        return numberStack.pop();
     }
 
     // Expression needs to be converted to suffix, so that it's more easily solved
@@ -58,7 +79,6 @@ public class Calculator {
         List<String> suffixExpr = new ArrayList<String>();
 
         for (String i : infixExpr) {
-            System.out.println(i + " : " + operators.containsKey(i));
             if (isNumber(i)) {
                 suffixExpr.add(i);
             } else if (operators.containsKey(i)) {
@@ -77,11 +97,10 @@ public class Calculator {
                     throw new IllegalArgumentException("Error: Mismatched parentheses");
                 stack.pop();
             } else {
-                throw new IllegalArgumentException("Error: Invalid input");
+                throw new IllegalArgumentException("Error: Invalid operator \'" + i + "\'");
             }
         }
         while (!stack.empty()) {
-            System.out.println("TOP");
             if (stack.peek().equals("(")) {
                 throw new IllegalArgumentException("Error: Mismatched parentheses");
             }
@@ -91,10 +110,10 @@ public class Calculator {
     }
 
     // Solves unary "-" operation by converting it to binary -1 * x operation
+    // "-" is unary if it's either first in the expression
+    // or if the token preceding is not a number or an ending parenthesis (which will always equal a number in the end)
     private static List<String> solveUnaryMinus (List<String> expr) {
         for (int i = 0; i < expr.size(); i++) {
-            // "-" is unary if it's either first in the expression
-            // or if the token preceding is not a number or ending parenthesis (which will always equal a number)
             if (expr.get(i).equals("-") && (i == 0 || !(isNumber(expr.get(i - 1)) || expr.get(i - 1).equals(")")))) {
                 expr.set(i, "-1");
                 expr.add(i + 1, "*");
@@ -137,11 +156,10 @@ public class Calculator {
 
             List<String> parsedExpr = parseExpr(expr);
             try {
-                System.out.println(parsedExpr.toString());
-                System.out.println(infixToSuffix(parsedExpr).toString());
-                //System.out.println("= " + solveExpr(parsedExpr));
+                List<String> suffixExpr = infixToSuffix(parsedExpr);
+                System.out.println("= " + solveExpr(suffixExpr));
             } catch (IllegalArgumentException e) {
-                //System.out.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
     }

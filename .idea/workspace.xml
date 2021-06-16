@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="627c6422-15d3-4a77-a355-861aa9dbfe53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/calculator/equations.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/calculator/resources/equations.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/equations.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/calculator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/calculator/equations.in" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/equations.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/Calculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/Calculator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/calculator/resources/equations.in" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/calculator/resources/equations.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/epptec/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/epptec/calculator/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/equations.in" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/equations.in" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +34,10 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -43,18 +45,6 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Calculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -93,6 +83,7 @@
       </map>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -111,13 +102,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

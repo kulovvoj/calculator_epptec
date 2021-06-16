@@ -6,7 +6,7 @@ import java.util.*;
 import static java.lang.Math.pow;
 
 public class Calculator {
-    private static Map<String, OperatorAttr> operators;
+    private static final Map<String, OperatorAttr> operators;
     static {
         Map<String, OperatorAttr> tmpOperators = new HashMap<>();
         tmpOperators.put("+", new OperatorAttr(2, OperatorAttr.Assoc.LEFT));
@@ -44,7 +44,7 @@ public class Calculator {
             case "^":
                 return pow(x, y);
             default:
-                throw new IllegalArgumentException("Error: Invalid operator \'" + operator + "\'");
+                throw new IllegalArgumentException("Error: Invalid operator '" + operator + "'");
         }
     }
 
@@ -63,7 +63,7 @@ public class Calculator {
                     Double val1 = numberStack.pop();
                     numberStack.push(solveOperator(val1, val2, i));
                 } catch (EmptyStackException e) {
-                    throw new IllegalArgumentException("Error: Invalid number of operands for operator \'" + i + "\'");
+                    throw new IllegalArgumentException("Error: Invalid number of operands for operator '" + i + "'");
                 }
             }
         }
@@ -99,7 +99,7 @@ public class Calculator {
                     throw new IllegalArgumentException("Error: Mismatched parentheses");
                 stack.pop();
             } else {
-                throw new IllegalArgumentException("Error: Invalid operator \'" + i + "\'");
+                throw new IllegalArgumentException("Error: Invalid operator '" + i + "'");
             }
         }
         while (!stack.empty()) {
@@ -144,6 +144,9 @@ public class Calculator {
     }
 
     public static void main (String[] args) {
+        // Tries to take the file path from arguments and access it
+        // If the file argument wasn't entered or doesn't lead to a file, it will raise an exception
+        // Then it takes input line by line and tries to solve it, skipping empty lines
         try {
             File file = new File(args[0]);
             Scanner fileReader = new Scanner(file);

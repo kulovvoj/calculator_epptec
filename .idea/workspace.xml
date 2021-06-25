@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="627c6422-15d3-4a77-a355-861aa9dbfe53" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/epptec/WebInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/WebInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/epptec/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/calculator/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/epptec/controller/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/controller/CalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/calculator.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/calculator.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/calculator/WEB-INF/classes/eu/epptec/WebInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/calculator/WEB-INF/classes/eu/epptec/WebInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/calculator/WEB-INF/classes/eu/epptec/controller/CalculatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/calculator/WEB-INF/classes/eu/epptec/controller/CalculatorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

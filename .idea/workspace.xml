@@ -5,33 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="627c6422-15d3-4a77-a355-861aa9dbfe53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/WebInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/controller/CalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/calculator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/Calculator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/OperatorAttr$Assoc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/calculator/eu/epptec/calculator/OperatorAttr.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/epptec/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/calculator/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/epptec/calculator/OperatorAttr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/calculator/OperatorAttr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/equations.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/epptec/controller/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/epptec/controller/CalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/calculator.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/calculator.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/calculator/WEB-INF/classes/eu/epptec/controller/CalculatorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/calculator/WEB-INF/classes/eu/epptec/controller/CalculatorController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

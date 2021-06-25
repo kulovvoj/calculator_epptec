@@ -146,31 +146,4 @@ public class Calculator {
         List<String> suffixExpr = infixToSuffix(parsedExpr);
         return solveExpr(suffixExpr);
     }
-
-    /*public static void main (String[] args) {
-        // Tries to take the file path from arguments and access it
-        // If the file argument wasn't entered or doesn't lead to a file, it will raise an exception
-        // Then it takes input line by line and tries to solve it, skipping empty lines
-        try {
-            File file = new File(args[0]);
-            Scanner fileReader = new Scanner(file);
-            while (fileReader.hasNextLine()) {
-                String expr = fileReader.nextLine();
-                if (expr.isEmpty())
-                    continue;
-                List<String> parsedExpr = parseExpr(expr);
-                try {
-                    List<String> suffixExpr = infixToSuffix(parsedExpr);
-                    System.out.println(expr + " = " + solveExpr(suffixExpr));
-                } catch (IllegalArgumentException e) {
-                    System.out.println("\"" + expr + "\" - " + e.getMessage());
-                }
-            }
-            fileReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: Path doesn't lead to any file");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error: Pass file path as an argument");
-        }
-    }*/
 }

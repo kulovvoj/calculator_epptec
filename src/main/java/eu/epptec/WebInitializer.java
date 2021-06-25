@@ -19,6 +19,6 @@ public class WebInitializer implements WebApplicationInitializer {
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet(webApplicationContext);
         ServletRegistration.Dynamic dynamic = servletContext.addServlet("Calculator-servlet", dispatcherServlet);
-        dynamic.addMapping("/calculate/*");
+        dynamic.addMapping("/*");
     }
 }

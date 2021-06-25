@@ -4,12 +4,10 @@ import eu.epptec.calculator.Calculator;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-
 @RestController
 public class CalculatorController {
-    @RequestMapping(value = "/{expr}", method = RequestMethod.GET)
-    public Double calculate(@PathVariable("expr") String expr) {
+    @RequestMapping(value = "calculate", method = RequestMethod.GET)
+    public Double calculate(@RequestParam("expr") String expr) {
         return Calculator.calculate(expr);
     }
 

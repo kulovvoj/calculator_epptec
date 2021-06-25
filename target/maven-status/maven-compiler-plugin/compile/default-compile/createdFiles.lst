@@ -1,0 +1,6 @@
+eu\epptec\calculator\OperatorAttr$Assoc.class
+eu\epptec\controller\CalculatorController.class
+eu\epptec\calculator\Calculator.class
+eu\epptec\calculator\OperatorAttr.class
+eu\epptec\WebConfig.class
+eu\epptec\WebInitializer.class
